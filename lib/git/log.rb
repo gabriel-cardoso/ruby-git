@@ -38,6 +38,12 @@ module Git
       return self
     end
     
+    def not(commitish)
+      dirty_log
+      @not = commitish
+      return self
+    end
+    
     def path(path)
       dirty_log
       @path = path
