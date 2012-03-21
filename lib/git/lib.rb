@@ -87,7 +87,7 @@ module Git
       arr_opts << "--author=#{opts[:author]}" if opts[:author].is_a? String
       arr_opts << "#{opts[:between][0].to_s}..#{opts[:between][1].to_s}" if (opts[:between] && opts[:between].size == 2)
       arr_opts << opts[:object] if opts[:object].is_a? String
-      arr_opts << "--not #{opts[:not]}" if opts[:not].is_a? String
+      arr_opts << "--not" << opts[:not] if opts[:not].is_a? String
       arr_opts << '--' << opts[:path_limiter] if opts[:path_limiter].is_a? String
       
       full_log = command_lines('log', arr_opts, true)
