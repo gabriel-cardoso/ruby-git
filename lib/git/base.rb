@@ -320,7 +320,7 @@ module Git
     end
 
     def cherry_pick(commitish, opts = {})
-      self.lib.cherry_pick(commitish, opts)
+      self.lib.cherry_pick(commitish)
     end
 
     # fetches a branch from a remote and merges it into the current working branch
