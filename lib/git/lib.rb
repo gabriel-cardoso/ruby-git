@@ -526,6 +526,12 @@ module Git
       end
     end
 
+    def cherry_pick(commit, opts = {})
+      arr_opt = []
+      arr_opts << commit if commit
+      command('cherry-pick', arr_opts)
+    end
+
     def remote_add(name, url, opts = {})
       arr_opts = ['add']
       arr_opts << '-f' if opts[:with_fetch]
