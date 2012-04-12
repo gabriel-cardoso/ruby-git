@@ -325,7 +325,9 @@ module Git
 
     # Find commits not merged upstream
     def cherry(upstream_branch, working_branch = "HEAD")
-      self.lib.cherry(upstream_branch, working_branch)
+      output = self.lib.cherry(upstream_branch, working_branch)
+      shas = output.split("\n").reject{|sha| sha.first == "-"}
+      shas.map{|sha| Git::Object.new(g, sha, "commit")}
     end
       
 
