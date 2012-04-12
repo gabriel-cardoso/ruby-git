@@ -319,6 +319,10 @@ module Git
       self.lib.conflicts(&block)
     end
 
+    def rebase(upstream, branch = "HEAD", opts = {})
+      self.lib.rebase(upstream, branch, opts)
+    end
+
     def cherry_pick(commitishes)
       self.lib.cherry_pick(commitishes)
     end

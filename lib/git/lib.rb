@@ -526,6 +526,14 @@ module Git
       end
     end
 
+    def rebase(upstream, branch, opts = {})
+      arr_opts = {}
+      arr_opts << "-s" << opts[:strategy] if opts[:strategy]
+      arr_opts << upstream
+      arr_opts << branch
+      command('rebase', arr_opts)
+    end
+
     def cherry_pick(commits, opts = {})
       arr_opts = []
       arr_opts = commits if commits
