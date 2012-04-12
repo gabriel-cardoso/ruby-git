@@ -319,8 +319,8 @@ module Git
       self.lib.conflicts(&block)
     end
 
-    def cherry_pick(commitish, opts = {})
-      self.lib.cherry_pick(commitish)
+    def cherry_pick(commitishes)
+      self.lib.cherry_pick(commitishes)
     end
 
     # fetches a branch from a remote and merges it into the current working branch

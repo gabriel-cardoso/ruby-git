@@ -526,9 +526,9 @@ module Git
       end
     end
 
-    def cherry_pick(commit, opts = {})
+    def cherry_pick(commits, opts = {})
       arr_opts = []
-      arr_opts << commit if commit
+      arr_opts = commits if commits
       command('cherry-pick', arr_opts)
     end
 
