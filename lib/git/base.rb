@@ -327,7 +327,7 @@ module Git
     def cherry(upstream_branch, working_branch = "HEAD")
       output = self.lib.cherry(upstream_branch, working_branch)
       shas = output.split("\n").reject{|sha| sha.first == "-"}
-      shas.map{|sha| Git::Object.new(g, sha, "commit")}
+      shas.map{|sha| Git::Object.new(self, sha, "commit")}
     end
       
 
