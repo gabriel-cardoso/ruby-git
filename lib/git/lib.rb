@@ -500,8 +500,10 @@ module Git
       command('checkout', arr_opts)
     end
     
-    def merge(branch, message = nil)      
+    def merge(branch, message = nil, opts = {})
       arr_opts = []
+      arr_opts << '-s' << opts[:strategy] if opts[:strategy]
+      arr_opts << opts[:strategy_opts] if opts[:strategy_opts]
       arr_opts << '-m' << message if message
       arr_opts += [branch]
       command('merge', arr_opts)
