@@ -216,6 +216,10 @@ module Git
       branches_all.select { |b| b[1] }.first[0] rescue nil
     end
 
+    def show_filenames(sha)
+      arr = []
+      command_lines('show', ['--pretty="format:"', '--name-only', sha])
+    end
 
     # returns hash
     # [tree-ish] = [[line_no, match], [line_no, match2]]

@@ -165,6 +165,11 @@ module Git
       Git::Object.new(self, objectish, 'blob')
     end
     
+    # returns files affected by a commit
+    def show_filenames(sha)
+      self.lib.show_filenames(sha)
+    end
+
     # returns a Git::Log object with count commits
     def log(count = 30)
       Git::Log.new(self, count)
