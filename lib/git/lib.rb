@@ -218,7 +218,7 @@ module Git
 
     def show_filenames(sha)
       arr = []
-      command_lines('show', ['--pretty="format:"', '--name-only', sha])
+      command_lines('show', ['--pretty="format:"', '--name-only', sha]).drop(1)
     end
 
     # returns hash
